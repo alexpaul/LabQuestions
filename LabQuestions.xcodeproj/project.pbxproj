@@ -23,6 +23,7 @@
 		5768048823A1CEC800571F2F /* QuestionDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5768048723A1CEC800571F2F /* QuestionDetailController.swift */; };
 		5768048A23A1CF8300571F2F /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5768048923A1CF8300571F2F /* UIImageView+Extensions.swift */; };
 		576D0E5D23A1B2B2002D6E16 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D0E5C23A1B2B2002D6E16 /* String+Extensions.swift */; };
+		57C6CF0123A3E56D00CA1387 /* PostedQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6CF0023A3E56D00CA1387 /* PostedQuestion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		5768048723A1CEC800571F2F /* QuestionDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailController.swift; sourceTree = "<group>"; };
 		5768048923A1CF8300571F2F /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		576D0E5C23A1B2B2002D6E16 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		57C6CF0023A3E56D00CA1387 /* PostedQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostedQuestion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				5767E64A23A2AF0C0044996B /* Question.swift */,
+				57C6CF0023A3E56D00CA1387 /* PostedQuestion.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57C6CF0123A3E56D00CA1387 /* PostedQuestion.swift in Sources */,
 				573109D023A08CBB00635ECE /* AppError.swift in Sources */,
 				573109B123A08C1000635ECE /* LabQuestionsController.swift in Sources */,
 				5768048623A1C40100571F2F /* CreateQuestionController.swift in Sources */,

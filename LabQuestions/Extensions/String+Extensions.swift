@@ -9,6 +9,7 @@
 import Foundation
 
 extension String {
+  // returns an ISO8601DateFormatter
   static func getISOFormatter() -> ISO8601DateFormatter {
     let isoDateFormatter = ISO8601DateFormatter()
       isoDateFormatter.timeZone = .current
@@ -22,9 +23,11 @@ extension String {
     return isoDateFormatter
   }
   
-  static func getISOTimestamp() -> String {
+  // creates a timestamp - the creates date and time of the object
+  // String.getISOTimestamp -> "2019-"
+  static func getISOTimestamp() -> String { // Date()
     let isoDateFormatter = getISOFormatter()
-    let timestamp = isoDateFormatter.string(from: Date())
+    let timestamp = isoDateFormatter.string(from: Date()) // current date and time
     return timestamp
   }
     
@@ -35,6 +38,7 @@ extension String {
     }
     
     let dateFormatter = DateFormatter()
+    //
     dateFormatter.dateFormat = "MMMM d yyyy, h:mm a"
     
     let dateString = dateFormatter.string(from: date)

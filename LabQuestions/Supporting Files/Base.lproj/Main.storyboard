@@ -66,9 +66,22 @@
                         <viewLayoutGuide key="safeArea" id="qrN-3q-BgG"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create Question" id="40G-VI-Fej">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="seR-oK-E7I"/>
-                        <barButtonItem key="rightBarButtonItem" title="Create" id="1sf-pM-d7w"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="seR-oK-E7I">
+                            <connections>
+                                <action selector="cancel:" destination="04E-ax-osA" id="RYE-ke-TyY"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Create" id="1sf-pM-d7w">
+                            <connections>
+                                <action selector="createQuestion:" destination="04E-ax-osA" id="hfZ-uw-Mez"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="labPickerView" destination="YMj-8j-OEz" id="ldx-Wu-VsW"/>
+                        <outlet property="questionTextView" destination="Urh-bm-bj7" id="Ea0-Fx-wyK"/>
+                        <outlet property="titleTextField" destination="cUH-Jx-5oT" id="2Bk-NQ-GDM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kla-1h-wTQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -211,6 +224,7 @@
         <!--Navigation Controller-->
         <scene sceneID="FMe-SF-OQZ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="INW-0U-PTs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hAl-Dg-guH" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="4S6-zy-89Y"/>
@@ -223,7 +237,6 @@
                         <segue destination="04E-ax-osA" kind="relationship" relationship="rootViewController" id="ayb-Zd-OTQ"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="INW-0U-PTs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="850.72463768115949" y="-581.25"/>
         </scene>
