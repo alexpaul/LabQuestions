@@ -26,6 +26,7 @@ class LabQuestionsController: UIViewController {
     tableView.dataSource = self
     loadQuestions()
     configureRefreshControl()
+    navigationItem.largeTitleDisplayMode = .never
   }
   
   func configureRefreshControl() {
