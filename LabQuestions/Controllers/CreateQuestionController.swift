@@ -51,12 +51,17 @@ class CreateQuestionController: UIViewController {
   
   @IBAction func createQuestion(_ sender: UIBarButtonItem) {
     // 3 required paramerters to create a PostedQuestion
+    
+    // disable the create bar button so multiple requests won't occur
+    sender.isEnabled = false
+    
     guard let questionTitle = titleTextField.text,
       !questionTitle.isEmpty,
       let labName = labName,
       let labDescription = questionTextView.text,
       !labDescription.isEmpty else {
         showAlert(title: "Missing Fields", message: "Title, Description are required")
+        sender.isEnabled = true
         return
     }
     
@@ -65,7 +70,10 @@ class CreateQuestionController: UIViewController {
                                   description: labDescription, createdAt: String.getISOTimestamp())
     
     // POST question using APIClient
-    LabQuestionsAPIClient.postQuestion(question: question) { [weak self] (result) in
+    LabQuestionsAPIClient.postQuestion(question: question) { [weak self, weak sender] (result) in
+      DispatchQueue.main.async {
+        sender?.isEnabled = true
+      }
       switch result {
       case .failure(let appError):
         DispatchQueue.main.async {
@@ -73,7 +81,9 @@ class CreateQuestionController: UIViewController {
         }
       case .success:
         DispatchQueue.main.async {
-          self?.showAlert(title: "Success", message: "\(questionTitle) was posted")
+          self?.showAlert(title: "Success", message: "\(questionTitle) was posted") { action in
+            self?.dismiss(animated: true)
+          }
         }
       }
     }
