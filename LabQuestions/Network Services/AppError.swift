@@ -24,8 +24,16 @@ enum AppError: Error, CustomStringConvertible {
     switch self {
     case .decodingError(let error):
       return "\(error)"
+    case .badStatusCode(let code):
+      return "\(code)"
+    case .encodingError(let error):
+      return "encoding error: \(error)"
+    case .networkClientError(let error):
+      return "network error: \(error)"
+    case .badURL(let url):
+      return "Verify the url \(url)"
     default:
-      return "AppError: \(self)"
+      return "other appError \(self)"
     }
   }
 }
