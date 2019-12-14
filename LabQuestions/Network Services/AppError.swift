@@ -21,6 +21,11 @@ enum AppError: Error, CustomStringConvertible {
   // TODO: handle more descriptive language for
   // error cases
   var description: String {
-    return "AppError: \(self)"
+    switch self {
+    case .decodingError(let error):
+      return "\(error)"
+    default:
+      return "AppError: \(self)"
+    }
   }
 }
