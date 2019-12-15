@@ -52,4 +52,38 @@ class LabQuestionsTests: XCTestCase {
     
     wait(for: [exp], timeout: 5.0)
   }
+  
+  func testGetAnswersForQuestion() {
+    // arrange
+    let questionId = "23"
+    let questionTitle = "How to access JSON with an API Key - Jaheed"
+    let endpointURL = "https://5df04c1302b2d90014e1bd66.mockapi.io/answers"
+    let exp = XCTestExpectation(description: "found answers")
+    struct Answer: Decodable {
+      let questionTitle: String
+      let questionId: String
+      let answerDescription: String
+    }
+    let request = URLRequest(url: URL(string: endpointURL)!)
+    
+    // act
+    NetworkHelper.shared.performDataTask(with: request) { (result) in
+      switch result {
+      case .failure(let appError):
+        XCTFail("appError: \(appError)")
+      case .success(let data):
+        do {
+          let answers = try JSONDecoder().decode([Answer].self, from: data)
+          let filteredQuestion = answers.filter { $0.questionId == questionId }
+          XCTAssertEqual(filteredQuestion.first?.questionTitle, questionTitle)
+          exp.fulfill()
+        } catch {
+          XCTFail("decoding error: \(error)")
+        }
+      }
+    }
+    
+    
+    
+  }
 }
