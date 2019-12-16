@@ -24,6 +24,8 @@
 		5768048A23A1CF8300571F2F /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5768048923A1CF8300571F2F /* UIImageView+Extensions.swift */; };
 		576D0E5D23A1B2B2002D6E16 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D0E5C23A1B2B2002D6E16 /* String+Extensions.swift */; };
 		57C6CF0123A3E56D00CA1387 /* PostedQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6CF0023A3E56D00CA1387 /* PostedQuestion.swift */; };
+		57F15EA723A7EB5B008E57F2 /* AnswerQuestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F15EA623A7EB5B008E57F2 /* AnswerQuestionController.swift */; };
+		57F15EA923A7EDFD008E57F2 /* PostedAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F15EA823A7EDFD008E57F2 /* PostedAnswer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		5768048923A1CF8300571F2F /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		576D0E5C23A1B2B2002D6E16 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		57C6CF0023A3E56D00CA1387 /* PostedQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostedQuestion.swift; sourceTree = "<group>"; };
+		57F15EA623A7EB5B008E57F2 /* AnswerQuestionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerQuestionController.swift; sourceTree = "<group>"; };
+		57F15EA823A7EDFD008E57F2 /* PostedAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostedAnswer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,7 @@
 				573109B023A08C1000635ECE /* LabQuestionsController.swift */,
 				5768048523A1C40100571F2F /* CreateQuestionController.swift */,
 				5768048723A1CEC800571F2F /* QuestionDetailController.swift */,
+				57F15EA623A7EB5B008E57F2 /* AnswerQuestionController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 			children = (
 				5767E64A23A2AF0C0044996B /* Question.swift */,
 				57C6CF0023A3E56D00CA1387 /* PostedQuestion.swift */,
+				57F15EA823A7EDFD008E57F2 /* PostedAnswer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -275,10 +281,12 @@
 				573109B123A08C1000635ECE /* LabQuestionsController.swift in Sources */,
 				5768048623A1C40100571F2F /* CreateQuestionController.swift in Sources */,
 				573109D123A08CBB00635ECE /* NetworkHelper.swift in Sources */,
+				57F15EA923A7EDFD008E57F2 /* PostedAnswer.swift in Sources */,
 				576D0E5D23A1B2B2002D6E16 /* String+Extensions.swift in Sources */,
 				5768048A23A1CF8300571F2F /* UIImageView+Extensions.swift in Sources */,
 				573109AD23A08C1000635ECE /* AppDelegate.swift in Sources */,
 				5767E64923A2AE6E0044996B /* LabQuestionsAPIClient.swift in Sources */,
+				57F15EA723A7EB5B008E57F2 /* AnswerQuestionController.swift in Sources */,
 				5723DE3C23A2471000C0E768 /* UIViewController+Alerts.swift in Sources */,
 				5767E64B23A2AF0C0044996B /* Question.swift in Sources */,
 				5768048823A1CEC800571F2F /* QuestionDetailController.swift in Sources */,

@@ -34,6 +34,7 @@ class NetworkHelper {
       // check for client network errors
       if let error = error {
         completion(.failure(.networkClientError(error)))
+        return
       }
       
       // 2. downcast URLResponse (response) to HTTPURLResponse to
