@@ -18,22 +18,24 @@ enum AppError: Error, CustomStringConvertible {
   case badStatusCode(Int) // 404, 500
   case badMimeType(String) // image/jpg
   
-  // TODO: handle more descriptive language for
-  // error cases
   var description: String {
     switch self {
     case .decodingError(let error):
       return "\(error)"
     case .badStatusCode(let code):
-      return "\(code)"
+      return "Bad status code of \(code) returned from web api"
     case .encodingError(let error):
       return "encoding error: \(error)"
     case .networkClientError(let error):
       return "network error: \(error)"
     case .badURL(let url):
-      return "Verify the url \(url)"
-    default:
-      return "other appError \(self)"
+      return "\(url) is a bad url"
+    case .noData:
+      return "no data returned from web api"
+    case .noResponse:
+      return "no response returned from web api"
+    case .badMimeType(let mimeType):
+      return "Verify your mime type found a \(mimeType) mime type"
     }
   }
 }
