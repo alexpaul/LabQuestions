@@ -14,6 +14,8 @@ class QuestionDetailController: UIViewController {
   @IBOutlet weak var labNameLabel: UILabel!
   @IBOutlet weak var questionTextView: UITextView!
   
+  @IBOutlet weak var questionTitleLabel: UILabel!
+  
   var question: Question?
   
   override func viewDidLoad() {
@@ -22,11 +24,19 @@ class QuestionDetailController: UIViewController {
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    guard let navController = segue.destination as? UINavigationController,
-      let answerQuestionController = navController.viewControllers.first as? AnswerQuestionController else {
-      fatalError("could not downcast to AnswerQuestionController")
+    if segue.identifier == "showAnswerQuestion" {
+      guard let navController = segue.destination as? UINavigationController,
+        let answerQuestionController = navController.viewControllers.first as? AnswerQuestionController else {
+        fatalError("could not downcast to AnswerQuestionController")
+      }
+      answerQuestionController.question = question
+    } else if segue.identifier == "showAnswers" {
+      // pass the question over to the AnswersViewController
+      guard let answersViewController = segue.destination as? AnswersViewController else {
+        fatalError("could not downcast to AnswersViewController")
+      }
+      answersViewController.question = question
     }
-    answerQuestionController.question = question
   }
   
   override func viewWillLayoutSubviews() {
@@ -39,6 +49,7 @@ class QuestionDetailController: UIViewController {
       fatalError("could not update ui, verify question got set in prepare(for segue: )")
     }
     labNameLabel.text = question.labName
+    questionTitleLabel.text = question.title
     questionTextView.text = question.description
     userImageView.getImage(with: question.avatar) { [weak self] (result) in
       switch result {

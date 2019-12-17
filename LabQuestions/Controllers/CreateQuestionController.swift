@@ -15,7 +15,11 @@ class CreateQuestionController: UIViewController {
   @IBOutlet weak var labPickerView: UIPickerView!
   
   // data for our picker view
-  private let labs = ["Concurrency", "Comic", "Parsing JSON - Weather, Color, User", "Image and Error Handling", "StocksPeople", "Intro to Unit testing - Jokes, Star Wars, Trivia"].sorted() // ascending by default a - z
+   private let labs = ["Concurrency", "Comic", "Parsing JSON - Weather, Color, User", "Image and Error Handling",
+                      "StocksPeople", "Intro to Unit testing - Jokes, Star Wars, Trivia", "Text-based adventure",
+                      "Hangman CLI", "Calculator CLI", "Three Card Monte", "ColorGuessingGame", "TextTwist","Autolayout-Lab",
+                      "CardGenerator", "TableView-Sections-Lab", "ZooAnimals", "Game of Thrones", "UpdatingFont", "GroceryList",
+                      "Tic Tac Toe", "Hangman iOS app", "Making GET requests - Shows, Episodes"].sorted() // ascending by default a - z
   
   // labName will be the current selected row in the picker view
   private var labName: String?

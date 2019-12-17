@@ -149,9 +149,30 @@ struct LabQuestionsAPIClient {
   }
   
   // GET request: to get all answers
-  static func fetchAnswers() {
+  static func fetchAnswers(completion: @escaping (Result<[Answer], AppError>) -> ()) {
     
+    let answersURLString = "https://5df04c1302b2d90014e1bd66.mockapi.io/answers"
+    
+    guard let url = URL(string: answersURLString) else {
+      completion(.failure(.badURL(answersURLString)))
+      return
+    }
+    
+    let request = URLRequest(url: url)
+    
+    NetworkHelper.shared.performDataTask(with: request) { (result) in
+      switch result {
+      case .failure(let appError):
+        completion(.failure(.networkClientError(appError)))
+      case .success(let data):
+        do {
+          let answers = try JSONDecoder().decode([Answer].self, from: data)
+          completion(.success(answers))
+        } catch {
+          completion(.failure(.decodingError(error)))
+        }
+      }
+    }
   }
-  
   
 }

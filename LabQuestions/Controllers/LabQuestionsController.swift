@@ -30,12 +30,15 @@ class LabQuestionsController: UIViewController {
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    guard let questionDetailController = segue.destination as? QuestionDetailController,
-      let indexPath = tableView.indexPathForSelectedRow else {
-        fatalError("could not segue missing indexPath, questionDC")
+    if segue.identifier == "showQuestionDC" {
+      guard let questionDetailController = segue.destination as? QuestionDetailController,
+        let indexPath = tableView.indexPathForSelectedRow else {
+          fatalError("could not segue missing indexPath, questionDC")
+      }
+      let question = questions[indexPath.row]
+      questionDetailController.question = question
     }
-    let question = questions[indexPath.row]
-    questionDetailController.question = question
+
   }
   
   func configureRefreshControl() {
